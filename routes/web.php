@@ -6,6 +6,7 @@ use App\Http\Controllers\StaffViewController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\CheckAge;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::get('/staffview', [StaffViewController::class, 'index'])->name('conn1');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
-    $users = User::all();
+    // $users = User::all();
+    $users = DB::table('users')->get();
+
     return view('dashboard', compact('users'));
 })->name('dashboard');
