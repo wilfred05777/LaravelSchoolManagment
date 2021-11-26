@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StaffViewController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\CheckAge;
 use App\Models\User;
@@ -39,6 +40,9 @@ Route::get('/home', function(){
 });
 
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
+
+// category COntroller
+Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
 
 Route::get('/userprofile',[UserProfileController::class, 'index']);
 
