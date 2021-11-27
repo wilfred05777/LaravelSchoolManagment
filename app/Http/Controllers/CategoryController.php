@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Carbon;
 
 class CategoryController extends Controller
 {
@@ -20,5 +23,12 @@ class CategoryController extends Controller
             // CUSTOM VALIDATION MESSAGE
             ['category_name.required' => 'Please Input Category Name']
     );
+
+    Category::insert([
+        'category_name' => $request->category_name,
+        'user_id' => Auth::user()->id,
+        'created_at' => Carbon::now()
+    ]);
+
     }
 }
