@@ -36,16 +36,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @php($i =1)
                                         @foreach ($categories as $category)
+                                            <tr>
+                                                <th scope="row">{{ $i++ }}</th>
+                                                <td>{{ $category->category_name }}</td>
+                                                <td>{{ $category->user_id }}</td>
+                                                <td>
+                                                    @if ($category->created_at == NULL)
+                                                        <span class="text-danger">No Date Set</span>
+                                                        @else
+                                                        {{-- eloquent format --}}
+                                                        {{-- {{ $category->created_at->diffForHumans() }} --}}
 
+                                                        {{-- query builder format --}}
+                                                        {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                                                    @endif
 
-                                        <tr>
-                                            <th></th>
-                                            <td>{{ $category->category_name }}</td>
-                                            <td>{{ $category->user_id }}</td>
-                                            <td>{{ $category->created_at }}</td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         @endforeach
 
                                     </tbody>
