@@ -13,7 +13,8 @@ class CategoryController extends Controller
 {
     //
     public function AllCat(){
-        return view('admin.category.index');
+        $categories = Category::all();
+        return view('admin.category.index', compact('categories'));
     }
 
 
@@ -27,11 +28,11 @@ class CategoryController extends Controller
     );
 
         // // Eloquent format - insert data
-        // Category::insert([
-        //     'category_name' => $request->category_name,
-        //     'user_id' => Auth::user()->id,
-        //     'created_at' => Carbon::now()
-        // ]);
+        Category::insert([
+            'category_name' => $request->category_name,
+            'user_id' => Auth::user()->id,
+            'created_at' => Carbon::now()
+        ]);
 
         // $category = new Category;
         // $category->category_name = $request->category_name;
@@ -39,10 +40,10 @@ class CategoryController extends Controller
         // $category->save();
 
         // // Query Builder format - insert data
-        $data = array();
-        $data['category_name'] = $request->category_name;
-        $data['user_id'] = Auth::user()->id;
-        DB::table('categories')->insert($data);
+        // $data = array();
+        // $data['category_name'] = $request->category_name;
+        // $data['user_id'] = Auth::user()->id;
+        // DB::table('categories')->insert($data);
 
         return Redirect()->back()->with('success', 'Category Inserted Successfully');
     }
