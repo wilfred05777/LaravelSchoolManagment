@@ -15,19 +15,20 @@ class CategoryController extends Controller
     public function AllCat(){
 
         // Query builder Join Table
-        $categories = DB::table('categories')
-        ->join('users', 'categories.user_id', 'users.id')
-        ->select('categories.*','users.name')
-        ->latest()->paginate(5);
+        // $categories = DB::table('categories')
+        // ->join('users', 'categories.user_id', 'users.id')
+        // ->select('categories.*','users.name')
+        // ->latest()->paginate(5);
 
 
         //// Eloquent ORM - Read Data
         // $categories = Category::all();
-        // $categories = Category::latest()->paginate(5);
+        $categories = Category::latest()->paginate(5);
+        $trashCat = Category::onlyTrashed()->latest()->paginate(3);
 
         //// Query Builder Read Data
         // $categories = DB::table('categories')->latest()->paginate(5);
-        return view('admin.category.index', compact('categories'));
+        return view('admin.category.index', compact('categories','trashCat'));
     }
 
 
@@ -86,6 +87,15 @@ class CategoryController extends Controller
     DB::table('categories')->where('id', $id)->update($data);
 
     return Redirect()->route('all.category')->with('success', 'Category Inserted Successfully');
+
+    }
+
+
+    public function SoftDelete($id){
+        // eloquent
+        $delete = Category::find($id)->delete();
+
+        return Redirect()->back()->with('success', 'Category Soft Delete Succesfully');
 
     }
 }
