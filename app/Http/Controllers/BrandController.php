@@ -18,8 +18,7 @@ class BrandController extends Controller
     }
 
     public function StoreBrand(Request $request){
-        $validatedData =  $request->validate
-        ([
+        $validatedData =  $request->validate([
             'brand_name' => 'required|unique:brands|min:4',
             'brand_image' => 'required|mimes: jpg,jpeg,png',
         ],
@@ -40,11 +39,11 @@ class BrandController extends Controller
 
         Brand::insert([
             'brand_name'  => $request->brand_name,
-            'brand_image' => $request->$last_img,
+            'brand_image' => $last_img,
             'created_at' => Carbon::now()
         ]);
 
-        return Redirect()-back()->with('success', 'Brand Inserted Successfully!');
+        return Redirect()->back()->with('success', 'Brand Inserted Successfully!');
 
     }
 }

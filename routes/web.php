@@ -45,7 +45,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
 //Brand route
 Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
-Route::post('/brand/store', [BrandController::class, 'StoreBrand'])->name('store.brand');
+Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
 
 
 
