@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StaffViewController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\CheckAge;
 use App\Models\User;
@@ -40,6 +41,13 @@ Route::get('/home', function(){
 });
 
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
+
+
+//Brand route
+Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
+Route::post('/brand/store', [BrandController::class, 'StoreBrand'])->name('store.brand');
+
+
 
 // category COntroller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
