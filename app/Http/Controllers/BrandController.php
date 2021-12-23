@@ -29,7 +29,6 @@ class BrandController extends Controller
         ]);
 
         $brand_image = $request->file('brand_image');
-
         $name_gen = hexdec(uniqid());
         $img_ext = strtolower($brand_image->getClientOriginalExtension());
         $img_name = $name_gen.'.'.$img_ext;
@@ -45,5 +44,11 @@ class BrandController extends Controller
 
         return Redirect()->back()->with('success', 'Brand Inserted Successfully!');
 
+    }
+
+    public function Edit($id){
+        $brands = Brand::find($id);
+
+        return view('admin.brand.edit', compact('brands'));
     }
 }
