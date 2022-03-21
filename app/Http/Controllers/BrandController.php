@@ -64,8 +64,6 @@ class BrandController extends Controller
         ]);
 
         $old_image = $request->old_image;
-
-
         $brand_image = $request->file('brand_image');
 
         $name_gen = hexdec(uniqid());
