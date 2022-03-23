@@ -49,7 +49,6 @@ class BrandController extends Controller
 
     public function Edit($id){
         $brands = Brand::find($id);
-
         return view('admin.brand.edit', compact('brands'));
     }
 
@@ -64,7 +63,9 @@ class BrandController extends Controller
         ]);
 
         $old_image = $request->old_image;
+        // $brand_image = $request->file('brand_image');
         $brand_image = $request->file('brand_image');
+
 
         $name_gen = hexdec(uniqid());
         $img_ext = strtolower($brand_image->getClientOriginalExtension());
@@ -77,9 +78,33 @@ class BrandController extends Controller
         Brand::find($id)->update([
             'brand_name'  => $request->brand_name,
             'brand_image' => $last_img,
-            'created_at' => Carbon::now()
-        ]);
-        return Redirect()->back()->with('success', 'Brand Updated Successfully!');
+            'created_at' => Carbon::now()]);
+            return Redirect()->back()->with('success', 'Brand Updated Successfully!');
+
+        // if($brand_image){
+        //     $name_gen = hexdec(uniqid());
+        //     $img_ext = strtolower($brand_image->getClientOriginalExtension());
+        //     $img_name = $name_gen.'.'.$img_ext;
+        //     $up_location = 'image/brand/';
+        //     $last_img = $up_location.$img_name;
+        //     $brand_image->move($up_location,$img_name);
+
+        //     unlink($old_image);
+        //     Brand::find($id)->update([
+        //         'brand_name'  => $request->brand_name,
+        //         'brand_image' => $last_img,
+        //         'created_at' => Carbon::now()
+        // ]);
+        // return Redirect()->back()->with('success', 'Brand Updated Successfully!');
+        // }else{
+        //     Brand::find($id)->update([
+        //         'brand_name'  => $request->brand_name,
+        //         'created_at' => Carbon::now()
+        // ]);
+        // return Redirect()->back()->with('success', 'Brand Updated Successfully!');
+        // }
+
+
     }
 
 

@@ -4,6 +4,16 @@
             Edit Brand
         </h2>
     </x-slot>
+
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times</span>
+            </button>
+        </div>
+    @endif
+
     <div class="py-12">
         <div class="container">
             <div class="row">
@@ -38,7 +48,7 @@
                                 <div class="form-group mt-3">
                                     <img src="{{ asset($brands->brand_image) }}" style="width:400px; height:200px;">
                                 </div>
-                                <button type="submit" class="mt-3 btn btn-primary" id="exampleInputEmail1">Update
+                                <button type="submit" class="mt-3 btn btn-primary">Update
                                     Brand</button>
                             </form>
                         </div>
