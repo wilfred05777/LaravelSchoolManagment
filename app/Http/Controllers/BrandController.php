@@ -32,6 +32,7 @@ class BrandController extends Controller
 
         $brand_image = $request->file('brand_image');
 
+        ////// without Image Intervention Package
         // $name_gen = hexdec(uniqid());
         // $img_ext = strtolower($brand_image->getClientOriginalExtension());
         // // $img_ext = strtolower($brand_image->guessExtension());
@@ -40,6 +41,8 @@ class BrandController extends Controller
         // $last_img = $up_location.$img_name;
         // $brand_image->move($up_location,$img_name);
 
+
+        //// Using Image Intervention Package
         $name_gen = hexdec(uniqid()).'.'.$brand_image->getClientOriginalExtension();
         Image::make($brand_image)->resize(300,200)->save('image/brand/'.$name_gen);
 
