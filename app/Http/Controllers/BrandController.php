@@ -31,6 +31,7 @@ class BrandController extends Controller
         $brand_image = $request->file('brand_image');
         $name_gen = hexdec(uniqid());
         $img_ext = strtolower($brand_image->getClientOriginalExtension());
+        // $img_ext = strtolower($brand_image->guessExtension());
         $img_name = $name_gen.'.'.$img_ext;
         $up_location = 'image/brand/';
         $last_img = $up_location.$img_name;
@@ -60,7 +61,6 @@ class BrandController extends Controller
         [
             'brand_name.required'=> 'Please Input Brand Name',
             'brand_image.max'=> 'Brand longer than 4 Character',
-
         ]);
 
         $old_image = $request->old_image;
@@ -79,7 +79,6 @@ class BrandController extends Controller
             'brand_image' => $last_img,
             'created_at' => Carbon::now()
         ]);
-
         return Redirect()->back()->with('success', 'Brand Updated Successfully!');
     }
 

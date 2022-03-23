@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+#exclude in repo
+/public/image/brand/*.*
