@@ -65,6 +65,8 @@ Route::post('/multi/add', [BrandController::class, 'StoreImage'])->name('store.i
 
 //// ADMIN ALL ROUTE
 Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
 
 // Category controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');

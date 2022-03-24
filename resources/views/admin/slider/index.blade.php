@@ -9,7 +9,7 @@
                     <h4>Home Slider</h4>
                     <div class="text-right pb-2">
 
-                        <a href="">
+                        <a href="{{ route('add.slider') }}">
                             <button class="btn btn-info ">Add Slider</button></a>
                     </div>
 
@@ -40,10 +40,11 @@
                             </thead>
                             <tbody>
 
-                                {{-- @php($i =1) --}}
+                                @php($i = 1)
                                 @foreach ($sliders as $slider)
                                     <tr>
-                                        <th scope="row">{{ $sliders->firstItem() + $loop->index }}</th>
+                                        <th scope="row">{{ $i++ }}</th>
+                                        {{-- <th scope="row"></th> --}}
                                         <td>{{ $slider->title }}</td>
                                         <td>{{ $slider->description }}</td>
                                         <td><img src="{{ asset($slider->image) }}" style="height:40px; width:70px;"
@@ -71,44 +72,7 @@
                         {{-- {{ $sliders->links() }} --}}
                     </div>
                 </div>
-                {{-- <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            Add Brand
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Slider Name</label>
-                                    <input name="slider_title" type="text" class="form-control" type="text" />
 
-
-                                    @error('brand_name')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Brand Image</label>
-                                    <input name="image" type="file" class="form-control" type="text" />
-
-
-                                    @error('image')
-                                        <span class="text-danger">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
-                                <button type="submit" class="mt-3 btn btn-primary" id="exampleInputEmail1">Add
-                                    Slider</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
