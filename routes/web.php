@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\DB;
 
 // FSSFSSFSSSFFFFFSFSFSFSFSFSFSF
 
+// Route::get('/email/verify/', function(){
+//     return view('auth.verify-email');
+// })->middleware(['auth'])->name('vefification.notice');
+
 Route::get('/', function () {
     return view('welcome');
 });
