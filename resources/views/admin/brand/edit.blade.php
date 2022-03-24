@@ -1,10 +1,13 @@
-<x-app-layout>
+{{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl  leading-tight">
             Edit Brand
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
+@extends('admin.admin_master')
+
+@section('admin')
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success') }}</strong>
@@ -58,4 +61,5 @@
         </div>
     </div>
     </div>
-</x-app-layout>
+@endsection()
+{{-- </x-app-layout> --}}

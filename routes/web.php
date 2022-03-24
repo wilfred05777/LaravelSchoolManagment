@@ -30,7 +30,9 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     // return view('welcome');
-    return view('home');
+
+    $brands = DB::table('brands')->get();
+    return view('home', compact('brands'));
 });
 
 Route::get('/about', function () {

@@ -34,7 +34,25 @@
 
                             <li class="active">
                                 <a class="sidenav-item-link" href="index.html">
-                                    <span class="nav-text">Ecommerce</span>
+                                    <span class="nav-text">Slider</span>
+
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a class="sidenav-item-link" href="index.html">
+                                    <span class="nav-text">Home About</span>
+
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a class="sidenav-item-link" href="index.html">
+                                    <span class="nav-text">Home Portfolio</span>
+
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('all.brand') }}">
+                                    <span class="nav-text">Home Brand</span>
 
                                 </a>
                             </li>
