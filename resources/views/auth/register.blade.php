@@ -88,6 +88,7 @@
                                     <input type="password" class="form-control input-lg" id="cpassword"
                                         name="password_confirmation" placeholder="Confirm Password">
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="d-inline-block mr-3">
                                         <label class="control control-checkbox">
