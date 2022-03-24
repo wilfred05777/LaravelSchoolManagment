@@ -29,7 +29,8 @@ use Illuminate\Support\Facades\DB;
 // })->middleware(['auth'])->name('vefification.notice');
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('home');
 });
 
 Route::get('/about', function () {
