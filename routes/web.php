@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\CheckAge;
+use App\Models\Multipics;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -50,6 +51,8 @@ Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
 Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 
+// // Multi Image Route
+Route::get('/multi/image', [BrandController::class, 'Multipic'])->name('multi.image');
 
 // category COntroller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
