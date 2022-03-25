@@ -1,10 +1,29 @@
+@php
+
+$sliders = DB::table('sliders')->get();
+
+@endphp
+
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
         <div class="carousel-inner" role="listbox">
 
-            <!-- Slide 1 -->
+            @foreach ($sliders as $key => $slider)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}"
+                    style="background-image: url({{ asset($slider->image) }} );">
+                    <div class="carousel-container">
+                        <div class="carousel-content animate__animated animate__fadeInUp">
+                            <h2>{{ $slider->title }}</span></h2>
+                            <p>{{ $slider->description }}</p>
+                            <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            {{-- <!-- Slide 1 -->
             <div class="carousel-item active"
                 style="background-image: url({{ asset('frontend/assets/img/slide/slide-1.jpg') }} );">
                 <div class="carousel-container">
@@ -16,10 +35,10 @@
                         <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Slide 2 -->
-            <div class="carousel-item"
+            {{-- <div class="carousel-item"
                 style="background-image: url({{ asset('frontend/assets/img/slide/slide-2.jpg);') }}">
                 <div class="carousel-container">
                     <div class="carousel-content animate__animated animate__fadeInUp">
@@ -30,10 +49,10 @@
                         <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Slide 3 -->
-            <div class="carousel-item"
+            {{-- <div class="carousel-item"
                 style="background-image: url({{ asset('frontend/assets/img/slide/slide-3.jpg);') }}">
                 <div class="carousel-container">
                     <div class="carousel-content animate__animated animate__fadeInUp">
@@ -44,7 +63,7 @@
                         <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
 
