@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StaffViewController;
@@ -70,6 +71,9 @@ Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('stor
 Route::get('/slider/delete/{id}', [HomeController::class, 'DeleteSlider']);
 Route::get('/slider/edit/{id}', [HomeController::class, 'EditSlider']);
 Route::post('/slider/update/{id}', [HomeController::class, 'UpdateSlider']);
+
+Route::get('/home/About', [AboutController::class, 'HomeAbout'])->name('home.about');
+
 
 // Category controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
