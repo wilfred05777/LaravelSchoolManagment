@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-    @extends('admin.admin_master')
+
 
 @section('admin')
     <div class="py-12">
@@ -12,7 +12,7 @@
                     <div class="text-right pb-2">
 
                         <a href="{{ route('add.slider') }}">
-                            <button class="btn btn-info ">Add Slider</button></a>
+                            <button class="btn btn-info ">Add Home About</button></a>
                     </div>
 
                     <div class="card">
